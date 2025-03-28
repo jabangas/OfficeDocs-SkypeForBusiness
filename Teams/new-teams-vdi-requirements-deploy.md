@@ -373,7 +373,6 @@ Make sure these folders and files are persisted for proper Teams functioning.
 
 **TeamsSharedConfig** stores user configurations for the Teams app switcher toggle (and what should be the default app, the Classic or New Teams), and the Teams Meeting Add In for Outlook.
 
-The folder "meeting-addin" under TeamsSharedConfig shouldn't be persisted, as persisting could cause issues with the default meeting coordinates in the meeting templates inserted into Outlook.
 
 >[!Important]
 >Microsoft recommends FSLogix 2210 HotFix 4 ([2.9.8884.27471](/fslogix/overview-release-notes#fslogix-2210-hotfix-4-29888427471)) in order to guarantee proper integration with the new Teams client in VDI. The following issues have been addressed on that release:
@@ -421,6 +420,7 @@ The underlying folder structure is logically similar to Electron-based classic T
 |**GPU Cache**               |LocalCache\Microsoft\MSTeams\EBWebView\WV2Profile_tfw\GPUCache |GPU cache. |No impact. |
 |**StartMenuExperienceHost** |AppData\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\TempState |Responsible for the **Start Menu** button and the tiles within it. |No impact. The exclusion is recommended to solve a missing Teams icon in the Start menu issue. |
 |**ShellExperienceHost (For Windows Server 2019 only)** |AppData\Local\Packages\Microsoft.Windows.ShellExperienceHost_cw5n1h2txyewy\TempState |Responsible for the **Start Menu** button and the tiles within it. |No impact. The exclusion is recommended to solve a missing Teams icon in the Start menu issue. |
+|**Meeting Add-in** | C:\Users<username>\AppData\Local\Publishers\8wekyb3d8bbwe\TeamsSharedConfig\meeting-addin | cause issues with the default meeting coordinates in the meeting templates inserted into Outlook.| No Impact. |
 
 ##### Review tradeoff considerations, requiring evaluation and testing for these environments
 
