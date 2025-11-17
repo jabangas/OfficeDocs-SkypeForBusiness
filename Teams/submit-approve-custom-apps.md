@@ -152,3 +152,21 @@ In most cases, after you publish an app update, the new version automatically ap
 - [Manage app permission policies in Teams](teams-app-permission-policies.md)
 - [Manage app setup policies in Teams](teams-app-setup-policies.md)
 - <a href="https://docs.microsoft.com/graph/api/resources/teamsapp?view=graph-rest-1.0" target="_blank">Microsoft Graph API for Teams apps</a>
+
+##CoPilot Agent Considerations
+
+1 - The org wide setting in team’s admin center “let users interact with custom apps in preview” is mandatory to interact with copilot studio agent? (customer is having this option toggled off, but have agents answering in teams, but when using the option "see agent in teams" in a new agent, he is not able to interact with it)
+Rep: Yes, this setting is required for developers to interact with newly created Copilot Studio agents using the “See agent in Teams” option. When this toggle is turned off, users can’t interact with preview or custom apps. Enabling this option ensures that Copilot Studio agents can be tested directly in Teams without admin intervention.
+
+2- When developers use the option see agent in teams from Copilot Studio, and they cannot interact with it, and the published app does reply in teams. (how can a developer know what is missing to have it working correctly in teams)
+
+Rep: If developers can see the agent in Teams but it doesn’t respond, it usually means one of the following is missing: the agent wasn’t published, the Teams channel isn’t configured, or the tenant’s custom app preview toggle is off. Developers can confirm this by checking that the agent is published, the Teams channel is added, and the app appears as “allowed", in the Teams admin center. Once these are verified, interaction should work as expected.
+
+3- After using “see agent in teams”, developers do not receive any warning or notification indicating that the app is pending admin approval from team’s admin center side, or that something needs to be done in order to have it working allowing developers to interact. What are the recommendations in order to avoid this confusion between copilot devs and teams administrators.
+
+Rep: Currently, when developers use “See agent in Teams,” no warning is shown if the app requires admin approval or if tenant settings block interaction. To avoid confusion, we recommend that:
+
+Teams admins pre-enable the custom app preview setting.
+Developers and admins follow a quick checklist before testing (publish the agent, enable Teams channel, confirm app approval).
+ 
+When the developer is finished, they should always use the "Submit for admin approval" button inside Copilot Studio. This clearly tells the Teams Administrator in the Teams Admin Center that the agent is ready for review and publishing and they can approve it.
